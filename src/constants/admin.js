@@ -5,3 +5,9 @@ export const admin = [
   { headline: "Phone" },
   { headline: "Action" },
 ];
+
+export const buttons = [
+  { titleOfButton: "edit", classnameOfButton: "action-button-edit regular-button-design" },
+  { titleOfButton: "details", classnameOfButton: "action-button-details regular-button-design" },
+  { titleOfButton: "delete", classnameOfButton: "action-button-delete regular-button-design" },
+];

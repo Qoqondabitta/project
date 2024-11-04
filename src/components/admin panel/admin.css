@@ -1,24 +1,54 @@
 .main {
   margin: 0 auto;
+  margin-top: 100px;
 }
 
 .container {
   max-width: 1300px;
   width: 100%;
+  gap: 0px;
 }
 
-.headline-box{
-    width: 100%;
-    margin-block: 100px;
+.headline-box {
+  width: 100%;
 }
 
 .headline-title {
-  padding: 5px 20px;
+  padding: 5px 0px;
   color: black;
   font-size: 16px;
   font-weight: 600;
   line-height: 18px;
   text-align: center;
   border: 1px solid black;
-  width: 200px;
+  width: 250px;
+}
+
+.regular-button-design {
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 80px;
+  height: 30px;
+}
+
+.action-button-edit {
+  background-color: green;
+}
+
+.action-button-delete {
+  background-color: red;
+}
+
+.action-button-details {
+  background-color: blue;
+}
+
+.buttons-wrap {
+  gap: 5px;
+  width: 250px;
 }
