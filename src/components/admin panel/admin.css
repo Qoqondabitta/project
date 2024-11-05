@@ -6,7 +6,6 @@
 .container {
   max-width: 1300px;
   width: 100%;
-  gap: 0px;
 }
 
 .headline-box {
@@ -22,6 +21,7 @@
   text-align: center;
   border: 1px solid black;
   width: 250px;
+  overflow: hidden;
 }
 
 .regular-button-design {
@@ -46,6 +46,11 @@
 
 .action-button-details {
   background-color: blue;
+}
+
+.action-button-add {
+  background-color: gold;
+  margin-top: 20px;
 }
 
 .buttons-wrap {

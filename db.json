@@ -1,10 +1,16 @@
 {
-    "employee": [
-        {
-          "id": 1,
-          "name": "Lazizjon",
-          "email": "lazizjon@gmail.com",
-          "phone": "+998909621180"
-        }
-    ]
+  "employee": [
+    {
+      "id": "1",
+      "name": "Lazizjon",
+      "email": "lazizjon@gmail.com",
+      "phone": "+998909621180"
+    },
+    {
+      "id": "56d4",
+      "fullName": "Abdurrozzaq",
+      "email": "example@gmail.com",
+      "phone": "+48502400608"
+    }
+  ]
 }
