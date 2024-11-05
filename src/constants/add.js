@@ -4,7 +4,7 @@ export const inputs = [
     forvalue: "fulname",
   },
   {
-    title: " enter email address",
+    title: "enter email address",
     forvalue: "email",
   },
   {

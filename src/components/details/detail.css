@@ -1,0 +1,26 @@
+.regular-form-style {
+  gap: 20px;
+}
+
+.regular-input-style {
+  width: 280px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  color: black;
+  padding: 5px 10px;
+}
+
+.regular-input-style::placeholder {
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+#create-button-style {
+  width: 280px;
+  background-color: orangered;
+}

@@ -1,41 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./edit.css";
 import "../admin panel/admin.css";
 import { inputs } from "../../constants/add";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditWorker = () => {
-  const {workerId} = useParams()
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const { workerId } = useParams()
+  const [data, setData] = useState({})
   const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   //   console.log(fullName, email, phone);
-  //   const newWorker = { fullName, email, phone };
-  //   fetch("http://localhost:8000/employee/"+workerId, {
-  //     method: "POST",
-  //     headers: { "content-type": "application/json" },
-  //     body: JSON.stringify(newWorker),
-  //   })
-  //     .then((res) => {
-  //       alert("Added Successfully Alhamdulillah!");
-  //       navigate("/");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.message);
-  //     });
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //   console.log(fullName, email, phone);
+    const newWorker = { fullName, email, phone };
+    fetch("http://localhost:8000/employee", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newWorker),
+    })
+      .then((res) => {
+        alert("Added Successfully Alhamdulillah!");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:8000/employee/"+workerId)
+      .then((res) => {
+        return res.json();
+      })
+      .then((resp) => {
+        setData(resp);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, [])
   return (
     <div className="main column-center">
       <div className="center container">
         <form
           className="regular-form-style column-center"
-          // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
         >
-          {/* {inputs.map((v, i) => ( */}
-            {/* <input
+          {inputs.map((v, i) => (
+            <input
               key={i}
               required
               onChange={(e) => {
@@ -54,14 +69,14 @@ const EditWorker = () => {
               }
               className="regular-input-style"
               placeholder={v.title}
-            /> */}
-          {/* ))} */}
+            />
+          ))}
           <button
             id="create-button-style"
             type="submit"
             className="regular-button-design"
           >
-            edit worker
+            hire new worker
           </button>
         </form>
       </div>
