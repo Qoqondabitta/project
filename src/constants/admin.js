@@ -9,5 +9,5 @@ export const admin = [
 export const buttons = [
   { urlToPage: "/worker/edit/", titleOfButton: "edit", classnameOfButton: "action-button-edit regular-button-design" },
   { urlToPage: "/worker/details/", titleOfButton: "details", classnameOfButton: "action-button-details regular-button-design" },
-  { urlToPage: "/worker/delete/", titleOfButton: "delete", classnameOfButton: "action-button-delete regular-button-design" },
+  { urlToPage: "/", titleOfButton: "delete", classnameOfButton: "action-button-delete regular-button-design" },
 ];

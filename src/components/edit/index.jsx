@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./edit.css";
 import "../admin panel/admin.css";
-import { inputs } from "../../constants/add";
 import { useNavigate, useParams } from "react-router-dom";
+import { editInputs } from "../../constants/edit";
 
 const EditWorker = () => {
   const [fullName, setFullName] = useState("");
+  const [id, setId] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const { workerId } = useParams()
-  const [data, setData] = useState({})
+  const workerId = useParams();
+  const [data, setData] = useState({});
   const navigate = useNavigate();
+
+  console.log(workerId, "it is worker id");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //   console.log(fullName, email, phone);
     const newWorker = { fullName, email, phone };
-    fetch("http://localhost:8000/employee", {
-      method: "POST",
+    fetch("http://localhost:8000/employee/"+workerId.id, {
+      method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newWorker),
     })
@@ -31,17 +33,20 @@ const EditWorker = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:8000/employee/"+workerId)
+    fetch("http://localhost:8000/employee/" + workerId.id)
       .then((res) => {
         return res.json();
       })
       .then((resp) => {
-        setData(resp);
+        setId(resp.id);
+        setFullName(resp.fullName || resp.name);
+        setEmail(resp.email);
+        setPhone(resp.phone);
       })
       .catch((err) => {
         console.log(err.message);
       });
-  }, [])
+  }, []);
   return (
     <div className="main column-center">
       <div className="center container">
@@ -49,7 +54,7 @@ const EditWorker = () => {
           className="regular-form-style column-center"
           onSubmit={handleSubmit}
         >
-          {inputs.map((v, i) => (
+          {editInputs.map((v, i) => (
             <input
               key={i}
               required

@@ -17,6 +17,16 @@ const AdminPanel = () => {
         console.log(err.message);
       });
   }, []);
+
+  const fireWorker = (id) => {
+    if (window.confirm("Do you really want to fire this worker"))
+      fetch("http://localhost:8000/employee/" + id, {
+        method: "DELETE",
+      }).then((resp) => {
+        alert("Fired Succesfully");
+        window.location.reload();
+      });
+  };
   return (
     <div className="main column-center">
       <div className="container column-center">
@@ -35,8 +45,19 @@ const AdminPanel = () => {
             <p className="headline-title">{v.phone}</p>
             <div className="buttons-wrap center">
               {buttons.map((val, i) => (
-                <NavLink to={`${val.urlToPage+v.id}`} style={{ textDecoration: "none" }}>
-                  <button key={i} className={val.classnameOfButton}>
+                <NavLink
+                  key={i}
+                  to={`${
+                    val.urlToPage == "/" ? val.urlToPage : val.urlToPage + v.id
+                  }`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <button
+                    onClick={() => {
+                      val.titleOfButton == "delete" && fireWorker(v.id);
+                    }}
+                    className={val.classnameOfButton}
+                  >
                     {val.titleOfButton}
                   </button>
                 </NavLink>
