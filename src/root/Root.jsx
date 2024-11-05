@@ -4,13 +4,14 @@ import AdminPanel from "../components/admin panel";
 import AddWorker from "../components/addWorker";
 import EditWorker from "../components/edit";
 import DetailsWorker from "../components/details";
+import AddTest from "../components/addWorker/testAdd";
 
 const Root = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AdminPanel />} />
-        <Route path="/add" element={<AddWorker />} />
+        <Route path="/add" element={<AddTest />} />
         <Route path="worker/details/:id" element={<DetailsWorker />} />
         <Route path="worker/edit/:id" element={<EditWorker />} />
         {/* <Route path="worker/delete/:id" element={<AddWorker />} /> */}
