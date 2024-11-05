@@ -18,6 +18,20 @@ const AdminPanel = () => {
       });
   }, []);
 
+  const deleteWorker = (id) => {
+    if (window.confirm("Do you really want to fire this worker?"))
+      fetch("http://localhost:8000/employee/" + id, {
+        method: "DELETE",
+      })
+        .then((res) => {
+          alert("This worker has been fired successfully");
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+  };
+
   const fireWorker = (id) => {
     if (window.confirm("Do you really want to fire this worker"))
       fetch("http://localhost:8000/employee/" + id, {
@@ -54,7 +68,7 @@ const AdminPanel = () => {
                 >
                   <button
                     onClick={() => {
-                      val.titleOfButton == "delete" && fireWorker(v.id);
+                      val.titleOfButton == "delete" && deleteWorker(v.id);
                     }}
                     className={val.classnameOfButton}
                   >
